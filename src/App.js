@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from '@material-ui/core/styles';
-import { Button, CardMedia, Grid, IconButton, TextField, Typography } from '@material-ui/core';
+import { Button, Grid, IconButton, TextField, Typography } from '@material-ui/core';
+import {Card, CardContent, CardMedia} from '@material-ui/core';
 import { pesquisarVeiculo } from './utils/sinesp';
 import { Search } from '@material-ui/icons';
 
@@ -11,7 +12,7 @@ function App() {
   const consultar = async (event) => {
     event.preventDefault()
     const auxResult = await pesquisarVeiculo(placaVeiculo)
-    setResultadoConsulta(auxResult)
+    setResultadoConsulta()
   }
 
   useEffect(() => console.log(resultadoConsulta), [resultadoConsulta])
@@ -34,6 +35,29 @@ function App() {
         <Grid item>
           ablabal
           {resultadoConsulta.situacao}
+
+          <Card>
+            <CardContent>
+              <Typography color="textSecondary" gutterBottom>
+                Word of the Day
+              </Typography>
+              <Typography variant="h5" component="h2">
+                be nev o lent
+              </Typography>
+              <Typography color="textSecondary">
+                adjective
+              </Typography>
+              <Typography variant="body2" component="p">
+                well meaning and kindly.
+                <br />
+                {'"a benevolent smile"'}
+              </Typography>
+            </CardContent>
+          </Card>
+
+
+
+
         </Grid>
       </Grid>
     </div>
